@@ -5,7 +5,7 @@ export async function determineOpenCommand(): Promise<string> {
       case "darwin":
         return "open";
       case "linux":
-        if ((await Deno.permissions.query({ name: "env" })) && Deno.env.get("WSL_DISTRO_HOME")) {
+        if ((await Deno.permissions.query({ name: "env" })) && Deno.env.get("WSL_DISTRO_NAME")) {
           // is WSL/WSL2
           return "explorer.exe";
         }
